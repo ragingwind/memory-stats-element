@@ -13,7 +13,7 @@ Start Chrome with `--enable-precise-memory-info` and `--enable-memory-info`
 # Linux
 google-chrome --enable-precise-memory-info --enable-memory-info
 
-#MacOS
+# MacOS
 /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-precise-memory-info --enable-memory-info
 ```
 
@@ -64,7 +64,7 @@ google-chrome --enable-precise-memory-info --enable-memory-info
         var stats = new MemoryStats();
         var root = this;
 
-        this.appendChild(stats.domElement);
+        Polymer.dom(this).appendChild(stats.domElement)
 
         if (position) {
           root.style.position = 'fixed';
