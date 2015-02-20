@@ -63,7 +63,7 @@ google-chrome --enable-precise-memory-info --enable-memory-info
         if (position) {
           var root = this;
           root.style.position = 'fixed';
-          Object.keys(position).forEach(function(p, i) {
+          Object.keys(position).forEach(function(p) {
             root.style[p] = position[p];
           });
         }
