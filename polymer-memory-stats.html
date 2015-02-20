@@ -20,17 +20,53 @@ google-chrome --enable-precise-memory-info --enable-memory-info
 ##### Example
 
     <polymer-memory-stats></polymer-memory-stats>
+    <polymer-memory-stats style="position:fixed;right:0;bottom:0;"></polymer-memory-stats>
+    <polymer-memory-stats position="left-top"></polymer-memory-stats>
 
 @element polymer-memory-stats
 @homepage http://ragingwind.github.io/polymer-memory-stats
 -->
-<polymer-element name="polymer-memory-stats">
+<polymer-element name="polymer-memory-stats" attributes="position">
   <template></template>
   <script>
+    var positions = {
+      'top-left': {
+        top: 0, left: 0
+      },
+      'top-right': {
+        top: 0, right: 0
+      },
+      'bottom-left': {
+        bottom: 0, left: 0
+      },
+      'bottom-right': {
+        bottom: 0, right: 0
+      }
+    };
+
     Polymer({
+      /**
+       * The `position` attribute sets an initial position that indicates to four corners. `top-left', 'top-right', 'bottom-left' and 'bottom-right'
+       *
+       * @attribute position
+       * @type string
+       * @default 'bottom-right'
+       */
+      position: 'bottom-right',
+
       ready: function () {
+        var position = this.position ? positions[this.position] : null;
         var stats = new MemoryStats();
+
         this.shadowRoot.appendChild(stats.domElement);
+
+        if (position) {
+          var root = this;
+          root.style.position = 'fixed';
+          Object.keys(position).forEach(function(p, i) {
+            root.style[p] = position[p];
+          });
+        }
 
         requestAnimationFrame(function rAFloop(){
           stats.update();
