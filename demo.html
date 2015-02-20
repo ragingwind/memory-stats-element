@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>polymer-memory-stats Demo</title>
+    <script src="../webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="polymer-memory-stats.html">
+  </head>
+  <body unresolved>
+    <polymer-memory-stats style="position:fixed;right:0;bottom:0;"></polymer-memory-stats>
+</iframe>
+  </body>
+  <script>
+    // generate plenty of objects
+    // from in generational GC demo from firefox
+    // https://people.mozilla.org/~wmccloskey/incremental-blog/example-pause.html
+
+    var garbage   = [];
+    var garbageSize = 1024 * 1024 * 6;
+    var garbageIdx  = 0;
+
+    function makeGarbage(amount){
+      for(var i = 0; i < amount; i++){
+        garbage[garbageIdx] = new Object();
+        garbage[garbageIdx] = {};
+        garbageIdx  = (garbageIdx+1) % garbageSize;
+      }
+    }
+    // var $content = document.querySelector('#content');
+    // console.log($content);
+    // function addGarbage() {
+    //   var $div = document.createElement("div");
+    //   $div.textContent = random(1, 1000);
+    //   $content.appendChild($div);
+    // };
+    requestAnimationFrame(function rAFloop(){
+      makeGarbage(1024);
+      // addGarbage();
+      requestAnimationFrame(rAFloop);
+    });
+  </script>
+</html>

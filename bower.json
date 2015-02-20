@@ -1,0 +1,17 @@
+{
+  "name": "polymer-memory-stats",
+  "version": "0.0.1",
+  "keywords": [
+    "seed",
+    "polymer",
+    "web-components"
+  ],
+  "main": "polymer-memory-stats.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.1",
+    "memory-stats": "*"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^2.0.0"
+  }
+}

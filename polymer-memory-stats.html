@@ -1,0 +1,43 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+Polymer element for memory-stats . It based on [Paul Irish](https://github.com/paulirish)'s [memory-stats](https://github.com/paulirish/memory-stats.js)
+
+![](http://i.imgur.com/bStpVsC.gif)
+
+### How to use
+
+Start Chrome with `--enable-precise-memory-info` and `--enable-memory-info`
+
+```
+# Linux
+google-chrome --enable-precise-memory-info --enable-memory-info
+
+#MacOS
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-precise-memory-info --enable-memory-info
+```
+
+##### Example
+
+    <polymer-memory-stats></polymer-memory-stats>
+
+@element polymer-memory-stats
+@homepage http://ragingwind.github.io/polymer-memory-stats
+-->
+<polymer-element name="polymer-memory-stats">
+  <template></template>
+  <script>
+    Polymer({
+      ready: function () {
+        var stats = new MemoryStats();
+        this.shadowRoot.appendChild(stats.domElement);
+
+        requestAnimationFrame(function rAFloop(){
+          stats.update();
+          requestAnimationFrame(rAFloop);
+        });
+      }
+    });
+  </script>
+  <script src="../memory-stats/memory-stats.js"></script>
+</polymer-element>
