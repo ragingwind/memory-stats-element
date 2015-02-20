@@ -4,7 +4,8 @@
   "keywords": [
     "seed",
     "polymer",
-    "web-components"
+    "web-components",
+    "memory-stats"
   ],
   "main": "polymer-memory-stats.html",
   "dependencies": {
@@ -12,6 +13,5 @@
     "memory-stats": "*"
   },
   "devDependencies": {
-    "web-component-tester": "Polymer/web-component-tester#^2.0.0"
   }
 }
