@@ -1,4 +1,4 @@
-# memory-stats-element
+# memory-stats
 
 Custom element for memory-stats . It based on [Paul Irish](https://github.com/paulirish)'s [memory-stats](https://github.com/paulirish/memory-stats.js)
 
@@ -9,7 +9,7 @@ See the [component page](http://ragingwind.github.io/memory-stats-element) for m
 ## Installation
 
 ```
-bower install ragingwind/memory-stats-element
+bower install ragingwind/memory-stats
 ```
 
 ## How to run
@@ -27,10 +27,10 @@ google-chrome --enable-precise-memory-info --enable-memory-info
 ## Usage
 
 ```
-<link rel="import" href="../memory-stats-element/memory-stats-element.html">
-<memory-stats-element></memory-stats-element>
-<memory-stats-element style="position:fixed;right:0;bottom:0;"></memory-stats-element>
-<memory-stats-element position="left-top"></memory-stats-element>
+<link rel="import" href="../memory-stats-element/memory-stats.html">
+<memory-stats></memory-stats>
+<memory-stats style="position:fixed;right:0;bottom:0;"></memory-stats>
+<memory-stats position="left-top"></memory-stats>
 ```
 
 ## Getting Started

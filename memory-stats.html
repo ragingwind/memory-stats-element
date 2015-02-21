@@ -19,14 +19,14 @@ google-chrome --enable-precise-memory-info --enable-memory-info
 
 ##### Example
 
-    <memory-stats-element></memory-stats-element>
-    <memory-stats-element style="position:fixed;right:0;bottom:0;"></memory-stats-element>
-    <memory-stats-element position="left-top"></memory-stats-element>
+    <memory-stats></memory-stats>
+    <memory-stats style="position:fixed;right:0;bottom:0;"></memory-stats>
+    <memory-stats position="left-top"></memory-stats>
 
-@element memory-stats-element
+@element memory-stats
 @homepage http://ragingwind.github.io/memory-stats-element
 -->
-<polymer-element name="memory-stats-element" attributes="position">
+<polymer-element name="memory-stats" attributes="position">
   <template></template>
   <script>
     var positions = {
