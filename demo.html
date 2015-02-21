@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>memory-stats Demo</title>
+    <title>memory-stats-element Demo</title>
     <script src="../webcomponentsjs/webcomponents.js"></script>
-    <link rel="import" href="memory-stats.html">
+    <link rel="import" href="memory-stats-element.html">
   </head>
   <body unresolved>
-    <memory-stats></memory-stats>
-    <memory-stats style="position:fixed;left:100px;top:100px;"></memory-stats>
-    <memory-stats position="top-left"></memory-stats>
-    <memory-stats position="top-right"></memory-stats>
-    <memory-stats position="bottom-left"></memory-stats>
+    <memory-stats-element></memory-stats-element>
+    <memory-stats-element style="position:fixed;left:100px;top:100px;"></memory-stats-element>
+    <memory-stats-element position="top-left"></memory-stats-element>
+    <memory-stats-element position="top-right"></memory-stats-element>
+    <memory-stats-element position="bottom-left"></memory-stats-element>
 </iframe>
   </body>
   <script>
@@ -31,16 +31,9 @@
         garbageIdx  = (garbageIdx+1) % garbageSize;
       }
     }
-    // var $content = document.querySelector('#content');
-    // console.log($content);
-    // function addGarbage() {
-    //   var $div = document.createElement("div");
-    //   $div.textContent = random(1, 1000);
-    //   $content.appendChild($div);
-    // };
+
     requestAnimationFrame(function rAFloop(){
       makeGarbage(1024);
-      // addGarbage();
       requestAnimationFrame(rAFloop);
     });
   </script>
