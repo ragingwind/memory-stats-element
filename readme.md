@@ -4,7 +4,7 @@ Custom element for memory-stats . It based on [Paul Irish](https://github.com/pa
 
 ![](http://i.imgur.com/bStpVsC.gif)
 
-See the [component page](http://ragingwind.github.io/polymer-memory-stats) for more information.
+See the [component page](http://ragingwind.github.io/memory-stats-element) for more information.
 
 ## Installation
 
