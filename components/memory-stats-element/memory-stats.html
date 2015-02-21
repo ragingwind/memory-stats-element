@@ -1,0 +1,79 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+Custom element for memory-stats. It based on [Paul Irish](https://github.com/paulirish)'s [memory-stats](https://github.com/paulirish/memory-stats.js)
+
+![](http://i.imgur.com/bStpVsC.gif)
+
+### How to use
+
+Start Chrome with `--enable-precise-memory-info` and `--enable-memory-info`
+
+```
+# Linux
+google-chrome --enable-precise-memory-info --enable-memory-info
+
+#MacOS
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-precise-memory-info --enable-memory-info
+```
+
+##### Example
+
+    <memory-stats></memory-stats>
+    <memory-stats style="position:fixed;right:0;bottom:0;"></memory-stats>
+    <memory-stats position="left-top"></memory-stats>
+
+@element memory-stats
+@homepage http://ragingwind.github.io/memory-stats-element
+-->
+<polymer-element name="memory-stats" attributes="position">
+  <template></template>
+  <script>
+    var positions = {
+      'top-left': {
+        top: 0, left: 0
+      },
+      'top-right': {
+        top: 0, right: 0
+      },
+      'bottom-left': {
+        bottom: 0, left: 0
+      },
+      'bottom-right': {
+        bottom: 0, right: 0
+      }
+    };
+
+    Polymer({
+      /**
+       * The `position` attribute sets an initial position that indicates to four corners. `top-left', 'top-right', 'bottom-left' and 'bottom-right'
+       *
+       * @attribute position
+       * @type string
+       * @default 'bottom-right'
+       */
+      position: 'bottom-right',
+
+      ready: function () {
+        var position = this.position ? positions[this.position] : null;
+        var stats = new MemoryStats();
+
+        this.shadowRoot.appendChild(stats.domElement);
+
+        if (position) {
+          var root = this;
+          root.style.position = 'fixed';
+          Object.keys(position).forEach(function(p) {
+            root.style[p] = position[p];
+          });
+        }
+
+        requestAnimationFrame(function rAFloop(){
+          stats.update();
+          requestAnimationFrame(rAFloop);
+        });
+      }
+    });
+  </script>
+  <script src="../memory-stats/memory-stats.js"></script>
+</polymer-element>

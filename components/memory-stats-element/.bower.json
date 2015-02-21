@@ -1,0 +1,26 @@
+{
+  "name": "memory-stats-element",
+  "keywords": [
+    "seed",
+    "polymer",
+    "web-components",
+    "memory-stats"
+  ],
+  "main": "memory-stats.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.1",
+    "memory-stats": "*"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/ragingwind/memory-stats-element",
+  "_release": "034e343a5d",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "034e343a5dcf4921edf258e3a111386fb3eccf01"
+  },
+  "_source": "git://github.com/ragingwind/memory-stats-element.git",
+  "_target": "master",
+  "_originalSource": "ragingwind/memory-stats-element",
+  "_direct": true
+}

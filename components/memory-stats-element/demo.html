@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>memory-stats Demo</title>
+    <script src="../webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="memory-stats.html">
+  </head>
+  <body unresolved>
+    <memory-stats></memory-stats>
+    <memory-stats style="position:fixed;left:100px;top:100px;"></memory-stats>
+    <memory-stats position="top-left"></memory-stats>
+    <memory-stats position="top-right"></memory-stats>
+    <memory-stats position="bottom-left"></memory-stats>
+</iframe>
+  </body>
+  <script>
+    // generate plenty of objects
+    // from in generational GC demo from firefox
+    // https://people.mozilla.org/~wmccloskey/incremental-blog/example-pause.html
+
+    var garbage   = [];
+    var garbageSize = 1024 * 1024 * 6;
+    var garbageIdx  = 0;
+
+    function makeGarbage(amount){
+      for(var i = 0; i < amount; i++){
+        garbage[garbageIdx] = new Object();
+        garbage[garbageIdx] = {};
+        garbageIdx  = (garbageIdx+1) % garbageSize;
+      }
+    }
+
+    requestAnimationFrame(function rAFloop(){
+      makeGarbage(1024);
+      requestAnimationFrame(rAFloop);
+    });
+  </script>
+</html>
