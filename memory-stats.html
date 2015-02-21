@@ -1,7 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 
 <!--
-Polymer element for memory-stats . It based on [Paul Irish](https://github.com/paulirish)'s [memory-stats](https://github.com/paulirish/memory-stats.js)
+Custom element for memory-stats . It based on [Paul Irish](https://github.com/paulirish)'s [memory-stats](https://github.com/paulirish/memory-stats.js)
 
 ![](http://i.imgur.com/bStpVsC.gif)
 
@@ -19,14 +19,14 @@ google-chrome --enable-precise-memory-info --enable-memory-info
 
 ##### Example
 
-    <polymer-memory-stats></polymer-memory-stats>
-    <polymer-memory-stats style="position:fixed;right:0;bottom:0;"></polymer-memory-stats>
-    <polymer-memory-stats position="left-top"></polymer-memory-stats>
+    <memory-stats></memory-stats>
+    <memory-stats style="position:fixed;right:0;bottom:0;"></memory-stats>
+    <memory-stats position="left-top"></memory-stats>
 
-@element polymer-memory-stats
+@element memory-stats
 @homepage http://ragingwind.github.io/polymer-memory-stats
 -->
-<polymer-element name="polymer-memory-stats" attributes="position">
+<polymer-element name="memory-stats" attributes="position">
   <template></template>
   <script>
     var positions = {

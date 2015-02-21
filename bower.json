@@ -7,7 +7,7 @@
     "web-components",
     "memory-stats"
   ],
-  "main": "polymer-memory-stats.html",
+  "main": "memory-stats.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^0.5.1",
     "memory-stats": "*"
