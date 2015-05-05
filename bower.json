@@ -10,8 +10,8 @@
   "main": "memory-stats.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^0.8.0",
-    "memory-stats": "*"
+    "memory-stats": "*",
+    "iron-component-page": "PolymerElements/iron-component-page#~0.8.1"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

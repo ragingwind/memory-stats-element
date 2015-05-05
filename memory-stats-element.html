@@ -27,17 +27,7 @@ google-chrome --enable-precise-memory-info --enable-memory-info
 @homepage http://ragingwind.github.io/memory-stats-element
 -->
 <dom-module id="memory-stats">
-  <style>
-  :host {
-    display: block;
-    border: 1px solid red;
-    width:100px;
-    height: 100px
-  }
-  </style>
-  <template>
-    Detailed
-  </template>
+  <template></template>
   <script>
     var positions = {
       'top-left': {
@@ -54,42 +44,40 @@ google-chrome --enable-precise-memory-info --enable-memory-info
       }
     };
 
-    document.addEventListener('WebComponentsReady', function() {
-      Polymer({
-        is: 'memory-stats',
-        /**
-         * The `position` attribute sets an initial position that indicates to four corners. `top-left', 'top-right', 'bottom-left' and 'bottom-right'
-         *
-         * @attribute position
-         * @type string
-         * @default 'bottom-right'
-         */
-        properties: {
-          position: {
-            type: String,
-            value: 'bottom-right'
-          }
-        },
-        ready: function () {
-          var position = this.position ? positions[this.position] : null;
-          var stats = new MemoryStats();
-          var root = this;
+    Polymer({
+      is: 'memory-stats',
+      /**
+       * The `position` attribute sets an initial position that indicates to four corners. `top-left', 'top-right', 'bottom-left' and 'bottom-right'
+       *
+       * @attribute position
+       * @type string
+       * @default 'bottom-right'
+       */
+      properties: {
+        position: {
+          type: String,
+          value: 'bottom-right'
+        }
+      },
+      ready: function () {
+        var position = this.position ? positions[this.position] : null;
+        var stats = new MemoryStats();
+        var root = this;
 
-          this.appendChild(stats.domElement);
+        this.appendChild(stats.domElement);
 
-          if (position) {
-            root.style.position = 'fixed';
-            Object.keys(position).forEach(function(p) {
-              root.style[p] = position[p];
-            });
-          }
-
-          requestAnimationFrame(function rAFloop(){
-            stats.update();
-            requestAnimationFrame(rAFloop);
+        if (position) {
+          root.style.position = 'fixed';
+          Object.keys(position).forEach(function(p) {
+            root.style[p] = position[p];
           });
         }
-      });
+
+        requestAnimationFrame(function rAFloop(){
+          stats.update();
+          requestAnimationFrame(rAFloop);
+        });
+      }
     });
   </script>
   <script src="../memory-stats/memory-stats.js"></script>
